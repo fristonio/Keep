@@ -18,6 +18,12 @@ var config = {
 				query: {
 					presets: ['react', 'es2015']
 				}
+			},
+
+			{
+				test: /\.css$/,
+				include: path.resolve(__dirname, 'src'),
+				loader: 'style-loader!css-loader'
 			}
 		]
 	}

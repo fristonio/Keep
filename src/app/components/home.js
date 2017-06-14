@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import Header from './header/header.js';
+require('./../styles/main.css')
+
 
 class Home extends Component {
 	render() {
 		return(
-			<div className="main">
-				<h1> Home </h1>
-			</div>
+				<Header />
 			);
 	}
 }

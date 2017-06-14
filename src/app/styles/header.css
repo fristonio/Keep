@@ -1,0 +1,40 @@
+.Header {
+	background-color: #202020;
+	font-family: 'Lato';
+	font-size: 20px;
+	color: #F1F0F0;
+	padding: 12px;
+	box-shadow: 4px 4px 2px #eeeeee;
+	display: flex;
+	justify-content: space-between;
+}
+.Header h1 {
+	font-size: 30px;
+	padding-left: 15px;
+}
+
+#searchBar {
+	display: flex;
+	align-items: center;
+	margin-right: 30px;
+}
+#searchBar i {
+	cursor: pointer;
+}
+.searchInput {
+	margin: 5px;
+	border-style: none;
+	color: #eeeeee;
+	font-size: 16px;
+	padding: 5px;
+	width: 200px;
+	background-color: #202020;
+	padding-bottom: 6px;
+	
+}
+.searchInput:focus {
+	outline-style: none;
+	border-style: none;
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 5px;
+}
