@@ -3,14 +3,24 @@
 	font-family: 'Lato';
 	font-size: 20px;
 	color: #F1F0F0;
-	padding: 12px;
+	padding: 10px;
 	box-shadow: 4px 4px 2px #eeeeee;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.appName {
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
 }
 .Header h1 {
-	font-size: 30px;
-	padding-left: 15px;
+	display: inline;
+	font-size: 26px;
+	padding-left: 30px;
+	padding-right: 20px;
+	letter-spacing: 0.02em;
+	line-height: 1.5em;
 }
 
 #searchBar {
@@ -27,7 +37,7 @@
 	color: #eeeeee;
 	font-size: 16px;
 	padding: 5px;
-	width: 200px;
+	width: 250px;
 	background-color: #202020;
 	padding-bottom: 6px;
 	

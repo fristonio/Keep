@@ -1,0 +1,23 @@
+.card {
+	max-width: 325px;
+	min-width: 275px;
+	min-height: 120px !important;
+	max-height: 400px;
+	background: #3e50b4;
+	padding: 15px;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+	margin: 15px;
+}
+
+.listItems {
+	list-style-type: none;
+	font-family: Lato;
+	color: #eeeeee;
+	font-size: 1.1em;
+	line-height: 1.4em;
+	padding-left: 10px;
+}
+
+.listItems li {
+	
+}

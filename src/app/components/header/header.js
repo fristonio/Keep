@@ -9,7 +9,10 @@ class Header extends Component {
 	render() {
 		return(
 			<div className="Header">
-				<h1> Keep </h1>
+				<div className="appName">
+					<i className="fa fa-bars"></i>
+					<h1>Note-It </h1>
+				</div>
 				<Search />
 			</div>
 			);
