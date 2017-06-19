@@ -1,0 +1,17 @@
+#create-note-form input {
+	background-color: inherit;
+	border-style: none;
+	padding: 15px;
+	font-size: 24px;
+	color: #444;
+	width: 500px;
+	border-bottom: 2px grey solid;
+	margin-top: 50px;
+}
+
+#create-note-form input:focus {
+	background-color: inherit;
+	border-style: none;
+	outline-style: none;
+	border-bottom: 2px grey solid;
+}
