@@ -5,17 +5,14 @@ require('./../../styles/card.css')
 class noteCard extends Component {
 	render() {
 		return (
-				<div className="card">
-					<ul className="listItems">
-						<li>List content 1</li>
-						<li>List content 2</li>
-						<li>{this.props.props}</li>
-						<li>{this.props.props}</li>
-						<li>{this.props.props}</li>
-						<li>{this.props.props}</li>
-						<li>{this.props.props}</li>
-						<li>{this.props.props}</li>
-					</ul>
+				<div className="cardContainer">
+					<div className="cardBody">
+						<li className="list-head"><i className="fa fa-plus"></i><b>Card - Heading</b></li>
+						<ul className="listItems">
+							<li>List content 1</li>
+						</ul>
+						<input type="text" className="input-todo"/>
+					</div>
 				</div>
 			);
 	}

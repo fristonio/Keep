@@ -1,23 +1,60 @@
-.card {
-	max-width: 325px;
+.cardContainer {
+	flex-grow: 1;
 	min-width: 275px;
-	min-height: 120px !important;
-	max-height: 400px;
+	max-width: 350px;
+	max-height: 275px;
+	overflow: hidden;
+	margin: 25px;
+}
+
+.cardBody {
+	width: inherit;
 	background: #3e50b4;
-	padding: 15px;
+	padding: 22px;
 	box-shadow: 0 8px 16px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
-	margin: 15px;
 }
 
 .listItems {
-	list-style-type: none;
+	padding-left: 10px;
 	font-family: Lato;
 	color: #eeeeee;
 	font-size: 1.1em;
 	line-height: 1.4em;
-	padding-left: 10px;
+	margin-left: 10px;
 }
 
-.listItems li {
-	
+.cardBody li {
+	color: #dddddd;
+	list-style-type: none;
+}
+
+.list-head {
+	font-size: 22px;
+	font-family: 'Lato';
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
+.list-head i {
+	padding-right: 8px;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.input-todo {
+	display: block;
+	border-style: none;
+	margin: auto;
+	margin-top: 10px;
+	padding: 4px;
+	background: none;
+	font-size: 18px;
+	color: #999;
+	border-bottom: 1px grey solid;
+}
+
+.input-todo:focus {
+	outline-style: none;
+	border-style: none;
+	border-bottom: 1px grey solid;
 }

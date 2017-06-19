@@ -11,10 +11,6 @@ class Home extends Component {
 				<div>
 					<Header />
 					<div id="main-body">
-						<Card />
-						<Card props="thisis it"/>
-						<Card />
-						<Card/>
 					</div>
 				</div>
 			);
