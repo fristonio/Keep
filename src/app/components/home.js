@@ -17,22 +17,46 @@ class Home extends Component {
 	}
 
 	render() {
+		let notes = this.state.notes;
+		let i = 0;
+		notes = notes.map((elem, index) => {
+			i++;
+			return(
+					<Card key={i} notes={elem} addNote={this.addNote.bind(this)}/>
+				);
+		});
+
 		return(
 				<div>
 					<Header />
+					<Createnote createNewNote={this.createNewNote.bind(this)}/>
 					<div id="main-body">
-						<Createnote addNewNote={this.addNewNote.bind(this)}/>
+						{notes}
 					</div>
 				</div>
 			);
 	}
 
 	// User defined functions :
-	addNewNote(name) {
-		let obj = {};
-		obj[name] = new Array();
-		this.state.notes.push(obj);
+
+	createNewNote(name) {
+		if(name) {
+			let obj = {};
+			obj[name] = new Array();
+			this.state.notes.push(obj);
+			this.forceUpdate();
+		}
 	}
+
+	addNote(note, noteHead) {
+		if(note) {
+			this.state.notes.map(obj => {
+				if(Object.keys(obj)[0] == noteHead)
+					obj[noteHead].push(note);
+			});
+		}
+	}
+
 }
 
 export default Home;

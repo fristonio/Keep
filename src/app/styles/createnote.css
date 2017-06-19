@@ -1,3 +1,9 @@
+#create-note-form {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
 #create-note-form input {
 	background-color: inherit;
 	border-style: none;
@@ -6,7 +12,8 @@
 	color: #444;
 	width: 500px;
 	border-bottom: 2px grey solid;
-	margin-top: 50px;
+	margin-top: 40px;
+	margin-bottom: 25px;
 }
 
 #create-note-form input:focus {

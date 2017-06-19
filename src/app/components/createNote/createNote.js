@@ -2,15 +2,18 @@ import React, {Component} from 'react';
 
 require('./../../styles/createnote.css')
 
+
 class Createnote extends Component {
 
 	componentDidMount() {
-	    this.createNote.addEventListener('keydown', this.handlekeypress.bind(this));
-	 }
+		this.createNote.addEventListener('keydown', this.handlekeypress.bind(this));
+	}
+
 
 	componentWillUnmount() {
-	    this.createNote.removeEventListener('keydown');
+		this.createNote.removeEventListener('keydown');
 	}
+
 
 	render() {
 		return (
@@ -20,9 +23,13 @@ class Createnote extends Component {
 		);
 	}
 
+
 	handlekeypress(event) {
-		if(event.keyCode === 13)
-			this.props.addNewNote(this.createNote.value)
+		// On pressing Enter in the input box
+		if(event.keyCode === 13) {
+			this.props.createNewNote(this.createNote.value);
+			this.createNote.value = '';
+		}
 	}
 
 }
