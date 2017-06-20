@@ -41,10 +41,18 @@ class Home extends Component {
 
 	createNewNote(name) {
 		if(name) {
-			let obj = {};
-			obj[name] = new Array();
-			this.state.notes.push(obj);
-			this.forceUpdate();
+			let exist = this.state.notes.find(elem => {
+				if (Object.keys(elem)[0] == name)
+					return true
+			});
+			if(!exist) {
+				let obj = {};
+				obj[name] = new Array();
+				this.state.notes.push(obj);
+				this.forceUpdate();
+			}
+			else
+				alert('Duplicate Note It already exists, try to create a new one with different name');
 		}
 	}
 

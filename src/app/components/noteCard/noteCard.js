@@ -25,23 +25,31 @@ class noteCard extends Component {
 		cardContent = cardContent.map((elem, index) => {
 			i++;
 			return (
-					<li key={i}>{elem}</li>
+					<li key={i} onClick={this.checkToggle}>
+						<i className="fa fa-close"></i>
+						{elem}
+					</li>
 				);
 		})
 
 		return (
 				<div className="cardContainer">
 					<div className="cardBody">
-						<li className="list-head"><i className="fa fa-plus"></i><b>{cardHead}</b></li>
-						<ul className="listItems">
+						<li className="list-head" onClick={this.toggleList.bind(this)}>
+							<i className="fa fa-plus"></i>
+							<b>{cardHead}</b>
+						</li>
+						<ul className="listItems active" ref="listItems">
 							{cardContent}
 						</ul>
-						<input type="text" className="input-todo" data-card={cardHead} ref={elem => this.addNote = elem}/>
+						<input type="text" className="input-todo" data-card={cardHead} ref={elem => this.addNote = elem} placeholder="Add to list"/>
 					</div>
 				</div>
 			);
 	}
 
+
+	// User defined functions
 	addNotes(event) {
 		if(event.keyCode === 13) {
 			this.props.addNote(this.addNote.value, this.addNote.dataset.card);
@@ -49,6 +57,20 @@ class noteCard extends Component {
 			this.forceUpdate();
 		}
 	}
+
+	toggleList(event) {
+		this.refs.listItems.classList.toggle('active');
+		this.refs.listItems.classList.toggle('disable');
+		event.currentTarget.firstChild.classList.toggle('fa-plus');
+		event.currentTarget.firstChild.classList.toggle('fa-minus');
+	}
+
+	checkToggle(event) {
+		event.currentTarget.firstChild.classList.toggle('fa-check');
+		event.currentTarget.classList.toggle('checked');
+		event.currentTarget.firstChild.classList.toggle('fa-close');
+	}
+
 }
 
 

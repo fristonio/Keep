@@ -4,7 +4,8 @@
 	max-width: 350px;
 	max-height: 275px;
 	overflow: hidden;
-	margin: 25px;
+	padding: 10px;
+	margin: 15px;
 }
 
 .cardBody {
@@ -16,11 +17,25 @@
 
 .listItems {
 	padding-left: 10px;
-	font-family: Lato;
+	font-family: 'Lato';
 	color: #eeeeee;
 	font-size: 1.1em;
-	line-height: 1.4em;
-	margin-left: 10px;
+	line-height: 1.5em;
+	margin-left: 25px;
+	transition: all 1s;
+}
+
+.listItems i {
+	cursor: pointer;
+	padding-right: 10px;
+}
+
+.active {
+	display: block;
+}
+
+.disable {
+	display: none;
 }
 
 .cardBody li {
@@ -31,7 +46,7 @@
 .list-head {
 	font-size: 22px;
 	font-family: 'Lato';
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 	cursor: pointer;
 }
 
@@ -45,11 +60,11 @@
 	display: block;
 	border-style: none;
 	margin: auto;
-	margin-top: 10px;
+	margin-top: 20px;
 	padding: 4px;
-	background: none;
 	font-size: 18px;
-	color: #999;
+	color: #bbb;	
+	background:none;
 	border-bottom: 1px grey solid;
 }
 
@@ -57,4 +72,5 @@
 	outline-style: none;
 	border-style: none;
 	border-bottom: 1px grey solid;
+	color: #bbb;
 }
