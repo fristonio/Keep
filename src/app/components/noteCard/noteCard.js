@@ -26,7 +26,7 @@ class noteCard extends Component {
 			i++;
 			return (
 					<li key={i} onClick={this.checkToggle}>
-						<i className="fa fa-close"></i>
+						<i className="fa fa-square-o"></i>
 						{elem}
 					</li>
 				);
@@ -36,7 +36,7 @@ class noteCard extends Component {
 				<div className="cardContainer">
 					<div className="cardBody">
 						<li className="list-head" onClick={this.toggleList.bind(this)}>
-							<i className="fa fa-plus"></i>
+							<i className="fa fa-minus"></i>
 							<b>{cardHead}</b>
 						</li>
 						<ul className="listItems active" ref="listItems">
@@ -61,14 +61,14 @@ class noteCard extends Component {
 	toggleList(event) {
 		this.refs.listItems.classList.toggle('active');
 		this.refs.listItems.classList.toggle('disable');
-		event.currentTarget.firstChild.classList.toggle('fa-plus');
 		event.currentTarget.firstChild.classList.toggle('fa-minus');
+		event.currentTarget.firstChild.classList.toggle('fa-plus');
 	}
 
 	checkToggle(event) {
-		event.currentTarget.firstChild.classList.toggle('fa-check');
+		event.currentTarget.firstChild.classList.toggle('fa-check-square-o');
 		event.currentTarget.classList.toggle('checked');
-		event.currentTarget.firstChild.classList.toggle('fa-close');
+		event.currentTarget.firstChild.classList.toggle('fa-square-o');
 	}
 
 }

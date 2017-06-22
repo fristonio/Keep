@@ -59,8 +59,13 @@ class Home extends Component {
 	addNote(note, noteHead) {
 		if(note) {
 			this.state.notes.map(obj => {
-				if(Object.keys(obj)[0] == noteHead)
-					obj[noteHead].push(note);
+				if(Object.keys(obj)[0] == noteHead) {
+					if(obj[noteHead].indexOf(note) == -1) {
+						obj[noteHead].push(note);
+					}
+					else
+						alert("Note already exist in this card")
+				}
 			});
 		}
 	}

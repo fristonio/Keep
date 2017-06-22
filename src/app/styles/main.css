@@ -9,6 +9,6 @@ body {
 #main-body {
 	margin: 5vh 12vw;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	flex-wrap: wrap;
 }

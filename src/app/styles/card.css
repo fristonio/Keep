@@ -23,6 +23,7 @@
 	line-height: 1.5em;
 	margin-left: 25px;
 	transition: all 1s;
+	overflow: hidden;
 }
 
 .listItems i {
@@ -31,11 +32,11 @@
 }
 
 .active {
-	display: block;
+	height: auto;
 }
 
 .disable {
-	display: none;
+	height: 0;
 }
 
 .cardBody li {
