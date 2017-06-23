@@ -14,7 +14,7 @@ class noteCard extends Component {
 	}
 
 	componentWillUnmount() {
-		this.addNote.removeEventListener('keydown');
+		this.addNote.removeEventListener('keydown', function(){});
 	}
 
 	render() {

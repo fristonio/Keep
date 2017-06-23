@@ -12,12 +12,13 @@ class Home extends Component {
 		super();
 		// Setting the initial state of Component
 		this.state = {
-						notes: new Array()
+						notes: new Array(), // Will contain all notes
+						displayedNotes: new Array() // Currently displayed notes
 					};
 	}
 
 	render() {
-		let notes = this.state.notes;
+		let notes = this.state.displayedNotes;
 		let i = 0;
 		notes = notes.map((elem, index) => {
 			i++;
@@ -26,9 +27,10 @@ class Home extends Component {
 				);
 		});
 
+		// Rendering HTML
 		return(
 				<div>
-					<Header />
+					<Header searchNote={this.searchNote.bind(this)} showAllNotes={this.showAllNotes.bind(this)}/>
 					<Createnote createNewNote={this.createNewNote.bind(this)}/>
 					<div id="main-body">
 						{notes}
@@ -39,6 +41,12 @@ class Home extends Component {
 
 	// User defined functions :
 
+	showAllNotes() {
+		this.state.displayedNotes = this.state.notes;
+		this.forceUpdate();
+	}
+
+	// create a New note card using the note header
 	createNewNote(name) {
 		if(name) {
 			let exist = this.state.notes.find(elem => {
@@ -49,13 +57,16 @@ class Home extends Component {
 				let obj = {};
 				obj[name] = new Array();
 				this.state.notes.push(obj);
+				this.state.displayedNotes = this.state.notes;
 				this.forceUpdate();
 			}
 			else
 				alert('Duplicate Note It already exists, try to create a new one with different name');
 		}
+
 	}
 
+	// Create a new Note under a particular card
 	addNote(note, noteHead) {
 		if(note) {
 			this.state.notes.map(obj => {
@@ -67,7 +78,43 @@ class Home extends Component {
 						alert("Note already exist in this card")
 				}
 			});
+			this.state.displayedNotes = this.state.notes;
 		}
+	}
+
+	// Search the note
+	searchNote(searchTerm) {
+		// Search for searchTerm in the note headings.
+		let cardsFound = []
+		this.state.notes.map(obj => {
+			let noteHead = Object.keys(obj)[0];
+			// Select the head as a match if the term entered matches complete heading or a part of it
+			if(noteHead.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
+				cardsFound.push(noteHead);
+		});
+
+		// Search for the notes in notes
+		let notesFound = []
+		this.state.notes.map(obj => {
+			Object.values(obj)[0].map(note => {
+				if(note.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+					let noteObj = {}
+					noteObj[Object.keys(obj)[0]] = note;
+					notesFound.push(noteObj)
+				}
+			});
+		});
+
+		let foundNotesHeadinArr= []
+		notesFound.map(obj => {
+			foundNotesHeadinArr.push(Object.keys(obj)[0]);
+		})
+
+
+		this.state.displayedNotes = this.state.notes.filter(obj => {
+			return ((cardsFound.indexOf(Object.keys(obj)[0]) > -1) || (foundNotesHeadinArr.indexOf(Object.keys(obj)[0]) > -1))
+		});
+		this.forceUpdate();
 	}
 
 }

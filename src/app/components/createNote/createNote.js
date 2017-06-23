@@ -4,7 +4,7 @@ require('./../../styles/createnote.css')
 
 
 class Createnote extends Component {
-
+	// Binding an event listner to DOM element
 	componentDidMount() {
 		this.createNote.addEventListener('keydown', this.handlekeypress.bind(this));
 	}
