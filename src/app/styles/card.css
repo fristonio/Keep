@@ -1,10 +1,11 @@
 .cardContainer {
 	flex-grow: 1;
-	width: 350px;
-	max-height: 275px;
+	display: flex;
+	justify-content: center;
+	width: 325px;
 	overflow: hidden;
-	padding: 15px;
-	margin: 20px;
+	padding: 20px;
+	margin: 15px;
 }
 
 .cardBody {
@@ -12,6 +13,18 @@
 	background: #3e50b4;
 	padding: 22px;
 	box-shadow: 0 8px 16px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+}
+
+.card-action {
+	position: relative;
+	color: white;
+	float: right;
+	font-size: 18px;
+}
+
+.card-action i {
+	padding-left: 10px;
+	cursor: pointer;
 }
 
 .listItems {

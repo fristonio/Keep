@@ -1,5 +1,7 @@
 # Keep
+
 > A note taking application based on react frameWork.
+
 
 ![Keep React](https://github.com/fristonio/Keep/blob/master/Images/Keep.png?raw=true)
 
@@ -9,4 +11,9 @@
 * Use `npm start` to run webpack server.
 
 ### To-do
+
 [ ] Add backend to store the results into the database or may be a json file.
+
+[x] Add feature to archive notes.
+
+[x] Add a note search feature.

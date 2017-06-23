@@ -13,7 +13,8 @@ class Home extends Component {
 		// Setting the initial state of Component
 		this.state = {
 						notes: new Array(), // Will contain all notes
-						displayedNotes: new Array() // Currently displayed notes
+						displayedNotes: new Array(), // Currently displayed notes
+						archivedNotes: new Array()
 					};
 	}
 
@@ -23,7 +24,7 @@ class Home extends Component {
 		notes = notes.map((elem, index) => {
 			i++;
 			return(
-					<Card key={i} notes={elem} addNote={this.addNote.bind(this)}/>
+					<Card key={i} notes={elem} addNote={this.addNote.bind(this)} archiveCard={this.archiveCard.bind(this)} deleteCard={this.deleteCard.bind(this)}/>
 				);
 		});
 
@@ -93,28 +94,50 @@ class Home extends Component {
 				cardsFound.push(noteHead);
 		});
 
-		// Search for the notes in notes
+		// Search for the searchTerm in notes
 		let notesFound = []
 		this.state.notes.map(obj => {
 			Object.values(obj)[0].map(note => {
 				if(note.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
-					let noteObj = {}
-					noteObj[Object.keys(obj)[0]] = note;
-					notesFound.push(noteObj)
+					if(notesFound.indexOf(Object.keys(obj)[0]) == -1)
+						notesFound.push(Object.keys(obj)[0]);
 				}
 			});
 		});
 
-		let foundNotesHeadinArr= []
-		notesFound.map(obj => {
-			foundNotesHeadinArr.push(Object.keys(obj)[0]);
-		})
-
-
 		this.state.displayedNotes = this.state.notes.filter(obj => {
-			return ((cardsFound.indexOf(Object.keys(obj)[0]) > -1) || (foundNotesHeadinArr.indexOf(Object.keys(obj)[0]) > -1))
+			return ((cardsFound.indexOf(Object.keys(obj)[0]) > -1) || (notesFound.indexOf(Object.keys(obj)[0]) > -1))
 		});
 		this.forceUpdate();
+	}
+
+	// Archive a note Card
+	archiveCard(cardHead) {
+		let archivedNote = this.state.notes.find(obj => {
+			return Object.keys(obj)[0] == cardHead;
+		});
+		if(archivedNote) {
+			if(this.state.notes.indexOf(archivedNote) != -1)
+				this.state.notes.splice(this.state.notes.indexOf(archivedNote), 1);
+			if(this.state.displayedNotes.indexOf(archivedNote) != -1)
+				this.state.displayedNotes.splice(this.state.displayedNotes.indexOf(archivedNote), 1);
+			this.state.archivedNotes.push(archivedNote);
+			this.forceUpdate();
+		}
+	}
+
+	// Delete a note card
+	deleteCard(cardHead) {
+		let deletedNote = this.state.notes.find(obj => {
+				return Object.keys(obj)[0] == cardHead;
+		});
+		if(deletedNote) {
+			if(this.state.notes.indexOf(deletedNote) != -1)
+				this.state.notes.splice(this.state.notes.indexOf(deletedNote), 1);
+			if(this.state.displayedNotes.indexOf(deletedNote) != -1)
+				this.state.displayedNotes.splice(this.state.displayedNotes.indexOf(deletedNote), 1);
+			this.forceUpdate();
+		}
 	}
 
 }

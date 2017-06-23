@@ -7,6 +7,7 @@ class noteCard extends Component {
 
 	constructor() {
 		super();
+		this.state = {cardHead: ""};
 	}
 
 	componentDidMount() {
@@ -19,7 +20,7 @@ class noteCard extends Component {
 
 	render() {
 		let cardContent = this.props.notes;
-		let cardHead = Object.keys(cardContent)[0];
+		this.state.cardHead = Object.keys(cardContent)[0];
 		cardContent = Object.values(cardContent)[0];
 		let i = 0;
 		cardContent = cardContent.map((elem, index) => {
@@ -35,14 +36,18 @@ class noteCard extends Component {
 		return (
 				<div className="cardContainer">
 					<div className="cardBody">
+						<div className="card-action">
+							<i className="fa fa-archive" aria-hidden="true" onClick={this.archiveCard.bind(this)}></i>
+							<i className="fa fa-close" aria-hidden="true" onClick={this.deleteCard.bind(this)}></i>
+						</div>
 						<li className="list-head" onClick={this.toggleList.bind(this)}>
 							<i className="fa fa-minus"></i>
-							<b>{cardHead}</b>
+							<b>{this.state.cardHead}</b>
 						</li>
 						<ul className="listItems active" ref="listItems">
 							{cardContent}
 						</ul>
-						<input type="text" className="input-todo" data-card={cardHead} ref={elem => this.addNote = elem} placeholder="Add to list"/>
+						<input type="text" className="input-todo" ref={elem => this.addNote = elem} placeholder="Add to list"/>
 					</div>
 				</div>
 			);
@@ -52,7 +57,7 @@ class noteCard extends Component {
 	// User defined functions
 	addNotes(event) {
 		if(event.keyCode === 13) {
-			this.props.addNote(this.addNote.value, this.addNote.dataset.card);
+			this.props.addNote(this.addNote.value, this.state.cardHead);
 			this.addNote.value = '';
 			this.forceUpdate();
 		}
@@ -69,6 +74,14 @@ class noteCard extends Component {
 		event.currentTarget.firstChild.classList.toggle('fa-check-square-o');
 		event.currentTarget.classList.toggle('checked');
 		event.currentTarget.firstChild.classList.toggle('fa-square-o');
+	}
+
+	archiveCard(event) {
+		this.props.archiveCard(this.state.cardHead)
+	}
+
+	deleteCard(event) {
+		this.props.deleteCard(this.state.cardHead)
 	}
 
 }
