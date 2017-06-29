@@ -26,10 +26,16 @@ export function createNewNote(cardHead, note) {
 	}
 }
 
-export function archiveNote() {
-
+export function archiveCard(cardHead) {
+	return {
+		type: 'ARCHIVE_CARD',
+		cardHead: cardHead
+	}
 }
 
-export function deleteNote() {
-
+export function deleteCard(cardHead) {
+	return {
+		type: 'DELETE_CARD',
+		cardHead: cardHead
+	}
 }

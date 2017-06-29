@@ -1,6 +1,7 @@
 import initialState from "./initialState";
 
 export default function notesReducer(state = initialState, action) {
+
 	switch(action.type) {
 
 		case 'CREATE_CARD':
@@ -15,7 +16,7 @@ export default function notesReducer(state = initialState, action) {
 				]
 			})
 
-		case 'CREATE_NOTE':
+		case 'CREATE_NEW_NOTE':
 			return Object.assign({}, state, {
 				notes: state.notes.map((card, index) => {
 					if(card[cardHead] === action.cardHead) {
@@ -34,7 +35,7 @@ export default function notesReducer(state = initialState, action) {
 			})
 
 		case 'SHOW_SEARCH_RESULTS':
-			return 
+			return state
 
 		case 'SHOW_ACTIVE':
 			return Object.assign({}, state, {
@@ -43,9 +44,15 @@ export default function notesReducer(state = initialState, action) {
 				})
 			})
 
+		case 'ARCHIVE_CARD':
+			return state
+
+		case 'DLETE_CARD':
+			return state
+
 		case 'SHOW_ALL':
 			return state;
 	}
-
 	return state;
+
 }
