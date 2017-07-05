@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import Search from './search/search';
+import { connect } from 'react-redux';
 
+import Search from './search/search';
+import * as actions from './../../actions/notesAction';
 
 require('./../../styles/header.css')
 
@@ -12,13 +14,24 @@ class Header extends Component {
 			<div className="Header">
 				<div className="appName">
 					<i className="fa fa-bars"></i>
-					<h1 onClick={this.props.showAllNotes}>Note-It </h1>
+					<h1 onClick={this.props.showActive}>Note-It </h1>
 				</div>
-				<Search searchNote={this.props.searchNote}/>
+				<Search/>
 			</div>
 			);
 	}
 
 }
 
-export default Header;
+const mapStateToProps = (state, ownProps) => {
+	return {}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		showActive: () => dispatch(actions.showActive())
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

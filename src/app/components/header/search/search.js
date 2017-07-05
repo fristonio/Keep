@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
+import * as actions from './../../../actions/notesAction';
 
 class Search extends Component {
 
@@ -14,9 +17,20 @@ class Search extends Component {
 	searchNote(event) {
 		if(event.keyCode === 13) {
 			let searchTerm = event.currentTarget.value;
-			this.props.searchNote(searchTerm);
+			this.props.showSearched(searchTerm);
 		}
 	}
 }
 
-export default Search;
+const mapStateToProps = (state, ownProps) => {
+	return {}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		showSearched: (searchTerm) => dispatch(actions.showSearched(searchTerm))
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
