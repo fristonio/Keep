@@ -1,5 +1,7 @@
 const initialState = {
-	notes: new Array()
+	notes: new Array(),
+	show: 'ACTIVE',
+	searchTerm: ""
 }
 
 export default initialState;

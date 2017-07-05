@@ -1,16 +1,3 @@
-export function showAll() {
-	return {
-		type: 'SHOW_ALL'
-	}
-}
-
-export function showSearchResults(searchTerm) {
-	return {
-		type: 'SHOW_SEARCH_RESULTS',
-		searchTerm: searchTerm
-	}
-}
-
 export function createNewCard(cardHead) {
 	return {
 		type: 'CREATE_CARD',
@@ -37,5 +24,24 @@ export function deleteCard(cardHead) {
 	return {
 		type: 'DELETE_CARD',
 		cardHead: cardHead
+	}
+}
+
+export function showActive() {
+	return {
+		type: 'SHOW_ACTIVE'
+	}
+}
+
+export function showArchived() {
+	return {
+		type: 'SHOW_ARCHIVED'
+	}
+}
+
+export function showSearched(searchTerm) {
+	return {
+		type: 'SHOW_SEARCHED',
+		searchTerm: searchTerm
 	}
 }

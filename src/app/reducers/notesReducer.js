@@ -16,10 +16,11 @@ export default function notesReducer(state = initialState, action) {
 				]
 			})
 
+
 		case 'CREATE_NEW_NOTE':
 			return Object.assign({}, state, {
 				notes: state.notes.map((card, index) => {
-					if(card[cardHead] === action.cardHead) {
+					if(card.cardHead === action.cardHead) {
 						return Object.assign({}, card, {
 							notes: [
 								...card.notes,
@@ -29,29 +30,60 @@ export default function notesReducer(state = initialState, action) {
 									note: action.note
 								}
 							]
-						})
+						});
 					}
+					return Object.assign({}, card);
 				})
 			})
 
-		case 'SHOW_SEARCH_RESULTS':
-			return state
+
+		case 'DELETE_CARD':
+			return Object.assign({}, {
+				notes: [
+					...state.notes.filter((card) => {
+						return action.cardHead != card.cardHead;
+					})
+				],
+				show: 'ACTIVE',
+				searchTerm: ''
+			});
+
+
+		case 'ARCHIVE_CARD':
+			return Object.assign({}, state, {
+				notes: [
+					...state.notes.map((card) => {
+						if(card.cardHead === action.cardHead){
+							return Object.assign({}, card, {
+								archived: true
+							});
+						}
+						else
+							return Object.assign({}, card)
+					})
+				]
+			})
+
 
 		case 'SHOW_ACTIVE':
 			return Object.assign({}, state, {
-				notes: state.notes.filter((card, index) => {
-					return card.archived === false;
-				})
+				show: 'ACTIVE',
+				searchTerm: ''
 			})
 
-		case 'ARCHIVE_CARD':
-			return state
 
-		case 'DLETE_CARD':
-			return state
+		case 'SHOW_ARCHIVED':
+			return Object.assign({}, state, {
+				show: 'ARCHIVED',
+				searchTerm: ''
+			})
 
-		case 'SHOW_ALL':
-			return state;
+
+		case 'SHOW_SEARCHED':
+			return Object.assign({}, state, {
+				show: 'SEARCHED',
+				searchTerm: action.searchTerm
+			})
 	}
 	return state;
 
