@@ -5,31 +5,31 @@ import * as actions from './../../../actions/notesAction';
 
 class Search extends Component {
 
-	render() {
-		return (
-			<div id="searchBar">
-				<input type="text" className="searchInput" placeholder="Search..." onKeyDown={this.searchNote.bind(this)}/>
-				<i className="fa fa-search"></i>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div id="searchBar">
+                <input type="text" className="searchInput" placeholder="Search..." onKeyDown={this.searchNote.bind(this)}/>
+                <i className="fa fa-search"></i>
+            </div>
+        );
+    }
 
-	searchNote(event) {
-		if(event.keyCode === 13) {
-			let searchTerm = event.currentTarget.value;
-			this.props.showSearched(searchTerm);
-		}
-	}
+    searchNote(event) {
+        if(event.keyCode === 13) {
+            let searchTerm = event.currentTarget.value;
+            this.props.showSearched(searchTerm);
+        }
+    }
 }
 
 const mapStateToProps = (state, ownProps) => {
-	return {}
+    return {}
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		showSearched: (searchTerm) => dispatch(actions.showSearched(searchTerm))
-	}
+    return {
+        showSearched: (searchTerm) => dispatch(actions.showSearched(searchTerm))
+    }
 }
 
 

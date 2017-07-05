@@ -12,8 +12,8 @@ const store = configureStore();
 
 // Render the App Component
 render( 
-	<Provider store={store}>
-		<Router history={browserHistory} routes={routes} />
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes} />
     </Provider>
     , document.getElementById("app")
 );

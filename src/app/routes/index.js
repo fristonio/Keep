@@ -4,7 +4,7 @@ import Home from './../components/home';
 
 
 export default (
-  <Route path="/" component={Home}>
-    <IndexRoute component={Home} />
-  </Route>
+    <Route path="/" component={Home}>
+        <IndexRoute component={Home} />
+    </Route>
 );

@@ -12,29 +12,29 @@ require('./../styles/main.css')
 
 class Home extends Component {
 
-	render() {
-		return(
-				<div>
-					<Header/>
-					<Createnote/>
-					<Notes/>
-				</div>
-			);
-	}
+    render() {
+        return(
+                <div>
+                    <Header/>
+                    <Createnote/>
+                    <Notes/>
+                </div>
+            );
+    }
 
 }
 
 
 const mapStateToProps = (state, ownProps) => {
-	// Now we can use this.props.notes 
-	return {
- 		notes: state.notes
- 	}
+    // Now we can use this.props.notes 
+    return {
+        notes: state.notes
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {
-	// Now we can use this.props.createNewNote
-	return {}
+    // Now we can use this.props.createNewNote
+    return {}
 }
 
 

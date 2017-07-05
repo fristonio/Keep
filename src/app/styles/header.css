@@ -1,51 +1,51 @@
 .Header {
-	background-color: #202020;
-	font-family: 'Lato';
-	font-size: 20px;
-	color: #F1F0F0;
-	padding: 8px;
-	box-shadow: 4px 4px 2px #eeeeee;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+    background-color: #202020;
+    font-family: 'Lato';
+    font-size: 20px;
+    color: #F1F0F0;
+    padding: 8px;
+    box-shadow: 4px 4px 2px #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .appName {
-	display: flex;
-	align-items: center;
-	margin-left: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
 }
 .Header h1 {
-	display: inline;
-	font-size: 26px;
-	padding-left: 30px;
-	padding-right: 20px;
-	letter-spacing: 0.02em;
-	line-height: 1.5em;
-	cursor: pointer;
+    display: inline;
+    font-size: 26px;
+    padding-left: 30px;
+    padding-right: 20px;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+    cursor: pointer;
 }
 
 #searchBar {
-	display: flex;
-	align-items: center;
-	margin-right: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
 }
 #searchBar i {
-	cursor: pointer;
+    cursor: pointer;
 }
 .searchInput {
-	margin: 5px;
-	border-style: none;
-	color: #eeeeee;
-	font-size: 16px;
-	padding: 5px;
-	width: 250px;
-	background-color: #202020;
-	padding-bottom: 6px;
-	
+    margin: 5px;
+    border-style: none;
+    color: #eeeeee;
+    font-size: 16px;
+    padding: 5px;
+    width: 250px;
+    background-color: #202020;
+    padding-bottom: 6px;
+    
 }
 .searchInput:focus {
-	outline-style: none;
-	border-style: none;
-	border-bottom: 1px solid #eeeeee;
-	padding-bottom: 5px;
+    outline-style: none;
+    border-style: none;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 5px;
 }

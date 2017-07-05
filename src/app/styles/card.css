@@ -1,89 +1,89 @@
 .cardContainer {
-	flex-grow: 1;
-	display: flex;
-	justify-content: center;
-	width: 325px;
-	overflow: hidden;
-	padding: 20px;
-	margin: 15px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    width: 325px;
+    overflow: hidden;
+    padding: 20px;
+    margin: 15px;
 }
 
 .cardBody {
-	width: inherit;
-	background: #3e50b4;
-	padding: 22px;
-	box-shadow: 0 8px 16px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+    width: inherit;
+    background: #3e50b4;
+    padding: 22px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
 }
 
 .card-action {
-	position: relative;
-	color: white;
-	float: right;
-	font-size: 18px;
+    position: relative;
+    color: white;
+    float: right;
+    font-size: 18px;
 }
 
 .card-action i {
-	padding-left: 10px;
-	cursor: pointer;
+    padding-left: 10px;
+    cursor: pointer;
 }
 
 .listItems {
-	padding-left: 10px;
-	font-family: 'Lato';
-	color: #eeeeee;
-	font-size: 1.1em;
-	line-height: 1.5em;
-	margin-left: 25px;
-	transition: all 1s;
-	overflow: hidden;
+    padding-left: 10px;
+    font-family: 'Lato';
+    color: #eeeeee;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin-left: 25px;
+    transition: all 1s;
+    overflow: hidden;
 }
 
 .listItems i {
-	cursor: pointer;
-	padding-right: 10px;
+    cursor: pointer;
+    padding-right: 10px;
 }
 
 .active {
-	height: auto;
+    height: auto;
 }
 
 .disable {
-	height: 0;
+    height: 0;
 }
 
 .cardBody li {
-	color: #dddddd;
-	list-style-type: none;
+    color: #dddddd;
+    list-style-type: none;
 }
 
 .list-head {
-	font-size: 22px;
-	font-family: 'Lato';
-	padding-bottom: 15px;
-	cursor: pointer;
+    font-size: 22px;
+    font-family: 'Lato';
+    padding-bottom: 15px;
+    cursor: pointer;
 }
 
 .list-head i {
-	padding-right: 8px;
-	font-size: 16px;
-	line-height: 22px;
+    padding-right: 8px;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 .input-todo {
-	display: block;
-	border-style: none;
-	margin: auto;
-	margin-top: 20px;
-	padding: 4px;
-	font-size: 18px;
-	color: #bbb;	
-	background:none;
-	border-bottom: 1px grey solid;
+    display: block;
+    border-style: none;
+    margin: auto;
+    margin-top: 20px;
+    padding: 4px;
+    font-size: 18px;
+    color: #bbb;    
+    background:none;
+    border-bottom: 1px grey solid;
 }
 
 .input-todo:focus {
-	outline-style: none;
-	border-style: none;
-	border-bottom: 1px grey solid;
-	color: #bbb;
+    outline-style: none;
+    border-style: none;
+    border-bottom: 1px grey solid;
+    color: #bbb;
 }
