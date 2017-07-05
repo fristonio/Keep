@@ -1,13 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-require('./../../styles/card.css')
+import * as actions from './../../../actions/notesAction';
 
 
-class noteCard extends Component {
+require('./../../../styles/card.css')
+
+
+class Card extends Component {
 
 	constructor() {
 		super();
-		this.state = {cardHead: ""};
 	}
 
 	componentDidMount() {
@@ -19,16 +22,14 @@ class noteCard extends Component {
 	}
 
 	render() {
-		let cardContent = this.props.notes;
-		this.state.cardHead = Object.keys(cardContent)[0];
-		cardContent = Object.values(cardContent)[0];
+		let cardContent = this.props.card.notes;
 		let i = 0;
 		cardContent = cardContent.map((elem, index) => {
 			i++;
 			return (
 					<li key={i} onClick={this.checkToggle}>
-						<i className="fa fa-square-o"></i>
-						{elem}
+						<i className={elem.completed ? "fa fa-check-square-o" : "fa fa-square-o"}></i>
+						{elem.note}
 					</li>
 				);
 		})
@@ -42,7 +43,7 @@ class noteCard extends Component {
 						</div>
 						<li className="list-head" onClick={this.toggleList.bind(this)}>
 							<i className="fa fa-minus"></i>
-							<b>{this.state.cardHead}</b>
+							<b>{this.props.card.cardHead}</b>
 						</li>
 						<ul className="listItems active" ref="listItems">
 							{cardContent}
@@ -57,9 +58,19 @@ class noteCard extends Component {
 	// User defined functions
 	addNotes(event) {
 		if(event.keyCode === 13) {
-			this.props.addNote(this.addNote.value, this.state.cardHead);
-			this.addNote.value = '';
-			this.forceUpdate();
+			let note = this.addNote.value;
+			if(note) {
+				let exist = this.props.card.notes.find(elem => {
+					if(note == elem.note)
+						return true;
+				});
+				if(!exist) {
+					this.props.createNewNote(this.props.card.cardHead, note);
+				}
+				else
+					alert("The note you are adding already exist in the same card")
+				this.addNote.value = '';
+			}
 		}
 	}
 
@@ -70,21 +81,27 @@ class noteCard extends Component {
 		event.currentTarget.firstChild.classList.toggle('fa-plus');
 	}
 
-	checkToggle(event) {
-		event.currentTarget.firstChild.classList.toggle('fa-check-square-o');
-		event.currentTarget.classList.toggle('checked');
-		event.currentTarget.firstChild.classList.toggle('fa-square-o');
-	}
-
 	archiveCard(event) {
-		this.props.archiveCard(this.state.cardHead)
+		this.props.archiveCard(this.props.card.cardHead)
 	}
 
 	deleteCard(event) {
-		this.props.deleteCard(this.state.cardHead)
+		this.props.deleteCard(this.props.card.cardHead)
 	}
 
 }
 
 
-export default noteCard;
+const mapStateToProps = (state, ownProps) => {
+	return {}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		createNewNote: (cardHead, note) => dispatch(actions.createNewNote(cardHead, note)),
+		archiveCard: (cardHead) => dispatch(actions.archiveCard(cardHead)),
+		deleteCard: (cardHead) => dispatch(actions.deleteCard(cardHead))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
