@@ -13,8 +13,8 @@
 
 ### To-do
 
-[   ] Add backend to store the results into the database or may be a json file.
+- [ ] Add backend to store the results into the database or may be a json file.
  
-[ x ] Add feature to archive notes.
+- [x] Add feature to archive notes.
 
-[ x ] Add a note search feature.
+- [x] Add a note search feature.
